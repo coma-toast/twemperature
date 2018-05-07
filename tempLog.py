@@ -18,8 +18,8 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-#Send a startup tweet
-now = datetime.datetime.now(tz=edt)
+#Send a startup tweet. Timezone is only UTC for now. 
+now = datetime.datetime.now()
 api.update_status('Up and running. ' + now.strftime("%Y-%m-%d %H:%M:%S") + ' #twemperature')
 
 #Set the limit to what you want, in Celcius
