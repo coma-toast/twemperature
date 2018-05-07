@@ -8,10 +8,10 @@ import Adafruit_DHT as dht
 import datetime
 
 #Twitter API keys
-CONSUMER_KEY = '594ZPtUcniFlt24yUypqKWlNB'
-CONSUMER_SECRET = 'GoYwE56tF4gyUe2Skl0HbA37ppXJdBCgOIycmwca9qGwHmzBPG'
-ACCESS_KEY = '993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp'
-ACCESS_SECRET = '8M5xO7vFsJoBnsMN6HO48PqvdXW7ccTqR9lxiALYr8hZI'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
+ACCESS_KEY = ''
+ACCESS_SECRET = ''
 
 #Test Twitter auth
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
