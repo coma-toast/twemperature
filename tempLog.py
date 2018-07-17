@@ -14,10 +14,10 @@ import argparse
 #arg parser. It parses args.
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
-parser.add_argument("-c", "--celcius", help="use celcius", action="store_true", default=False)
+#parser.add_argument("-c", "--celcius", help="use celcius", action="store_true", default=False)
 parser.add_argument("-f", "--fahrenheit", help="use Fahrenheit", action="store_true", default=False)
-parser.add_argument("-H", "--high", help="monitor for a high temperature", action="store", type=int)
-parser.add_argument("-L", "--low", help="monitor for a low temperature", action="store", type=int)
+parser.add_argument("-H", "--high", help="monitor for a high temperature (C)", action="store", type=int)
+parser.add_argument("-L", "--low", help="monitor for a low temperature (C)", action="store", type=int)
 parser.add_argument("-i", "--interval", help="set polling interval when a high/low condition is met", action="store", type=int)
 
 args = parser.parse_args()
@@ -51,6 +51,7 @@ def testAuth():
         pprint(auth)
         pprint(api)
     checkin(api)
+    #pollTemp(api, args.interval, args.low, args.high)
 
 
 
@@ -63,27 +64,52 @@ def checkin(api):
 #Set the limit to what you want, in Celcius
 #32f = 0c; 30f = -1.1c; 80f = 26.6c; 72f = 22.2c; 14f = -10c
 
-def pollTemp(scale, interval):
+def pollTemp(api, interval, min, max):
     while True:
     	h,t = dht.read_retry(dht.DHT22, 4)
     	f = format((9.0/5.0 * t + 32), '.1f')
     	h = format(h, '.1f')
         if args.fahrenheit:
-            print f
+            print h,f,t
             if args.verbose:
                 print 'Fahrenheit={0:0.1f}'.format(9.0/5.0 * t + 32) + ' Humidity= ' + str(h)
-            
-    	print h
-    	print t
+                print 'Celcius={0:0.1f}'.format(t) + ' Humidity= ' + str(h)
+            if args.high:
+                if checkHigh(t, max):
+                    print 'High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
+                    sleep(interval)
+                else:
+                    sleep(interval)
+            sleep(interval)
 
     	if t > -9:
     		print 'too hot!'
     		#api.update_status(' High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '% ' + '#twemperature')
     		print 'High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
-    		sleep(5)
+
     	else:
-    		print 'normal'
-    		sleep(5)
-    f.close()
+            if args.verbose:
+                print 'normal temp'
+    		sleep(interval)
+
+def checkHigh(temp, max):
+    if temp >= max
+    if args.verbose:
+        print 'Temperature exceeded threshold'
+        print 'High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
+        return True
+    else:
+        return False
+
+def checkLow(temp, min):
+    if temp <= min
+    if args.verbose:
+        print 'Temperature exceeded threshold'
+        print 'Low Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
+        return True
+    else:
+        return False
+
+f.close()
 
 testAuth()
