@@ -1,1 +1,16 @@
 Verbose logging enabled
+Verbose logging enabled
+PARAMS: {'status': 'Up and running. 2018-07-23 23:00:02 #twemperature'}
+Signing request <PreparedRequest [POST]> using client <Client nonce=None, signature_method=HMAC-SHA1, realm=None, encoding=utf-8, timestamp=None, resource_owner_secret=****, decoding=None, verifier=None, signature_type=AUTH_HEADER, rsa_key=None, resource_owner_key=993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp, client_secret=****, callback_uri=None, client_key=594ZPtUcniFlt24yUypqKWlNB>
+Including body in call to sign: False
+Collected params: [(u'status', u'Up and running. 2018-07-23 23:00:02 #twemperature'), (u'oauth_nonce', u'91427708196839347521532386803'), (u'oauth_timestamp', u'1532386803'), (u'oauth_consumer_key', u'594ZPtUcniFlt24yUypqKWlNB'), (u'oauth_signature_method', u'HMAC-SHA1'), (u'oauth_version', u'1.0'), (u'oauth_token', u'993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp')]
+Normalized params: oauth_consumer_key=594ZPtUcniFlt24yUypqKWlNB&oauth_nonce=91427708196839347521532386803&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1532386803&oauth_token=993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp&oauth_version=1.0&status=Up%20and%20running.%202018-07-23%2023%3A00%3A02%20%23twemperature
+Normalized URI: https://api.twitter.com/1.1/statuses/update.json
+Base signing string: POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3D594ZPtUcniFlt24yUypqKWlNB%26oauth_nonce%3D91427708196839347521532386803%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1532386803%26oauth_token%3D993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp%26oauth_version%3D1.0%26status%3DUp%2520and%2520running.%25202018-07-23%252023%253A00%253A02%2520%2523twemperature
+Signature: xvWzgsf+V7CENAJb12RpIkMjr9E=
+Updated url: https://api.twitter.com/1.1/statuses/update.json?status=Up+and+running.+2018-07-23+23%3A00%3A02+%23twemperature
+Updated headers: {u'Host': u'api.twitter.com', u'Content-Length': u'0', u'Authorization': u'OAuth oauth_nonce="91427708196839347521532386803", oauth_timestamp="1532386803", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="594ZPtUcniFlt24yUypqKWlNB", oauth_token="993542856601202688-QOn5RTzAur4I1W5n1I10UWyr6C4efpp", oauth_signature="xvWzgsf%2BV7CENAJb12RpIkMjr9E%3D"'}
+Updated body: None
+Starting new HTTPS connection (1): api.twitter.com
+https://api.twitter.com:443 "POST /1.1/statuses/update.json?status=Up+and+running.+2018-07-23+23%3A00%3A02+%23twemperature HTTP/1.1" 200 1972
+Checked in at 2018-07-23 23:00:02.782079

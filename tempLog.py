@@ -99,6 +99,10 @@ def pollTemp(api, i, min, max):
     	h,t = dht.read_retry(dht.DHT22, 4)
     	f = format((9.0/5.0 * t + 32), '.1f')
     	h = format(h, '.1f')
+        if not (args.high or args.low):
+            if args.verbose: print("Temp: " + str(f) + "F; " + str(t) + "C; " + str(h) + "%")
+
+
         if args.high:
             if checkHigh(t, max):
                 if args.fahrenheit:
@@ -119,6 +123,7 @@ def pollTemp(api, i, min, max):
                 sleep(i)
         else:
             sleep(i)
+        sleep(i)
 
         # if args.fahrenheit:
         #     print h,f,t
