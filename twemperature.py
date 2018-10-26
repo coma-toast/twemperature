@@ -57,10 +57,6 @@ __location__ = os.path.realpath(
 #Open config file
 f = open(os.path.join(__location__, 'configFile.json'));
 configFile = json.load(f)
-#print configFile
-# pprint(configFile)
-
-
 
 #Twitter API keys
 CONSUMER_KEY = configFile["CONSUMER_KEY"]
@@ -80,7 +76,6 @@ def testAuth():
         logger.info(api, auth)
     checkin(api)
     pollTemp(api, args.interval, args.low, args.high)
-
 
 
 #Send a startup tweet. Timezone is only UTC for now.
