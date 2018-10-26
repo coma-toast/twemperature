@@ -92,7 +92,6 @@ def checkin(api):
 
 #Set the limit to what you want, in Celcius
 #32f = 0c; 30f = -1.1c; 80f = 26.6c; 72f = 22.2c; 14f = -10c
-
 def pollTemp(api, i, min, max):
     print("pollTemp")
     while True:
@@ -124,41 +123,6 @@ def pollTemp(api, i, min, max):
         else:
             sleep(i)
         sleep(i)
-
-        # if args.fahrenheit:
-        #     print h,f,t
-        #     if args.verbose:
-        #         print 'Fahrenheit={0:0.1f}'.format(9.0/5.0 * t + 32) + ' Humidity= ' + str(h)
-        #         print 'Celcius={0:0.1f}'.format(t) + ' Humidity= ' + str(h)
-        #     if args.high:
-        #         if checkHigh(t, max):
-        #             print 'High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
-        #             sleep(i)
-        #         else:
-        #             sleep(i)
-        #     sleep(i)
-        # elif args.celcius:
-        #     print h,f,t
-        #     if args.verbose:
-        #         print 'Fahrenheit={0:0.1f}'.format(9.0/5.0 * t + 32) + ' Humidity= ' + str(h)
-        #         print 'Celcius={0:0.1f}'.format(t) + ' Humidity= ' + str(h)
-        #     if args.high:
-        #         if checkHigh(t, max):
-        #             print 'High Temperature: ' + str(t) + 'F Humidity: ' + str(h) + '%'
-        #             sleep(i)
-        #         else:
-        #             sleep(i)
-        #     sleep(i)
-
-    	# if t > -9:
-    	# 	print 'too hot!'
-    	# 	#api.update_status(' High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '% ' + '#twemperature')
-    	# 	print 'High Temperature: ' + str(f) + 'F Humidity: ' + str(h) + '%'
-        #
-    	# else:
-        #     if args.verbose:
-        #         print 'normal temp'
-    	# 	sleep(interval)
 
 def checkHigh(temp, max):
     if temp >= max:
