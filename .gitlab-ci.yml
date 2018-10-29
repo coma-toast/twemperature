@@ -1,0 +1,15 @@
+stages:
+  - build
+  - deploy
+  
+job_build:
+  stage: build
+  tags:
+    - work-desktop
+  script:
+    - ls
+
+job_deploy:
+  stage: deploy
+  script:
+    - ls

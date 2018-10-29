@@ -24,7 +24,7 @@ parser.add_argument("--logfile", help="Path to the logfile. If empty, output is 
 
 args = parser.parse_args()
 if args.verbose:
-    print "verbosity turned on"
+    print "Verbosity enabled"
 
 #Set some logging options
 logger = logging.getLogger()
